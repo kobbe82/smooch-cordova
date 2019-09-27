@@ -34,7 +34,12 @@
         <framework src="AssetsLibrary.framework" />
         <framework src="Photos.framework" />
         <framework src="AVFoundation.framework" />
-        <framework src="Smooch" type="podspec" spec="~> 6.0" />
+
+        <podspec>
+            <pods use-frameworks="true">
+                <pod name="Smooch" spec="~> 7.1" />
+            </pods>
+        </podspec>
 
     </platform>
 
