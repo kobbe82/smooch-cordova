@@ -7,7 +7,7 @@
     <description>Smooch Cordova Plugin for iOS and Android</description>
     <keywords>Smooch,messaging,chat,in-app</keywords>
 
-    <js-module name="Smooch" src="www/js/zig-zig-smooch-cordova.js">
+    <js-module name="Smooch" src="www/js/zig-smooch-cordova.js">
         <clobbers target="Smooch" />
     </js-module>
 
