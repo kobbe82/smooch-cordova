@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://git.zigtools.nl:7999/sandbox/smooch-cordova.git"
+    "url": "git+https://github.com/kobbe82/smooch-cordova.git"
   },
   "keywords": [
     "Smooch",
