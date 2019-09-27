@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="cordova-plugin-smooch" version="2.0.0">
+        id="cordova-plugin-zig-smooch" version="1.0.0">
 
     <name>Smooch</name>
     <description>Smooch Cordova Plugin for iOS and Android</description>
-    <keywords>Smooch,messaging,chat,in-app,support,help</keywords>
+    <keywords>Smooch,messaging,chat,in-app</keywords>
 
-    <js-module name="Smooch" src="www/js/smooch-cordova.js">
+    <js-module name="Smooch" src="www/js/zig-zig-smooch-cordova.js">
         <clobbers target="Smooch" />
     </js-module>
 

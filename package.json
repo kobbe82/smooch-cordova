@@ -1,10 +1,9 @@
 {
-  "name": "smooch-cordova",
-  "version": "2.0.0",
+  "name": "zig-smooch-cordova",
+  "version": "1.0.0",
   "description": "Smooch Cordova Plugin for iOS and Android",
-  "license": "MIT",
   "cordova": {
-    "id": "cordova-plugin-smooch",
+    "id": "cordova-plugin-zig-smooch",
     "platforms": [
       "ios",
       "android"
@@ -12,22 +11,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smooch/smooch-cordova.git"
+    "url": "ssh://git@git.zigtools.nl:7999/sandbox/smooch-cordova.git"
   },
   "keywords": [
     "Smooch",
     "messaging",
     "chat",
     "in-app",
-    "support",
-    "help",
     "ecosystem:cordova",
     "cordova-ios",
     "cordova-android"
   ],
-  "author": "Smooch",
-  "bugs": {
-    "url": "https://github.com/smooch/smooch-cordova/issues"
-  },
-  "homepage": "https://github.com/smooch/smooch-cordova#readme"
+  "author": "Kobbe van Daatselaar",
+  "homepage": "www.zig.nl"
 }

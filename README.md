@@ -1,6 +1,4 @@
-> Maintainer needed. PRs welcomed. If you actively use this and want to become a maintainer let us know at help@smooch.io.
-
-# smooch-cordova
+# zig-smooch-cordova
 Cordova (PhoneGap) bindings for [Smooch](https://smooch.io).
 
 # Basic Setup
@@ -8,14 +6,12 @@ Cordova (PhoneGap) bindings for [Smooch](https://smooch.io).
 ## Install Smooch
 
 For iOS: [http://docs.smooch.io/#manual-method](http://docs.smooch.io/#manual-method)
-
 For Android: Gradle does the work for you!
 
 ## Install Cordova plugin
+cordova plugin add ssh://git@git.zigtools.nl:7999/sandbox/smooch-cordova.git
 
-cordova plugin add smooch-cordova
-
-You should now see smooch-cordova.js and the SmoochCordova source files in your project directory.
+You should now see zig-zig-smooch-cordova.js and the SmoochCordova source files in your project directory.
 
 ## Init Smooch with appId
 
