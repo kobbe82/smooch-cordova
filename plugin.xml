@@ -36,6 +36,10 @@
         <framework src="AVFoundation.framework" />
 
         <podspec>
+            <config>
+                <source url="https://github.com/brightcove/BrightcoveSpecs.git" />
+                <source url="https://github.com/CocoaPods/Specs.git"/>
+            </config>
             <pods use-frameworks="true">
                 <pod name="Smooch" spec="~> 7.1" />
             </pods>
