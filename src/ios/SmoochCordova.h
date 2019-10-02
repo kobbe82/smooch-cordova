@@ -8,7 +8,11 @@
 
 #import <Cordova/CDV.h>
 
+@protocol SKTConversationDelegate;
+
 @interface SmoochCordova : CDVPlugin
+
+@property(weak, nullable) id<SKTConversationDelegate> delegate;
 
 - (void)init:(CDVInvokedUrlCommand *)command;
 - (void)show:(CDVInvokedUrlCommand *)command;

@@ -25,8 +25,10 @@
     [sktSettingsObj setValuesForKeysWithDictionary:settings];
     [Smooch initWithSettings:sktSettingsObj completionHandler:^(NSError * _Nullable error, NSDictionary * _Nullable userInfo) {
         if(!error){
+            NSLog(@"Kobbe smooch init successfull");
             [self sendSuccess:command];
         } else {
+            NSLog(@"Kobbe smooch init error");
             [self sendFailure:command];
         }
     }];
@@ -84,6 +86,12 @@
     [currentUser addProperties:properties];
 
     [self sendSuccess:command];
+}
+
+#kda - smooch events
+-(void)conversation:(SKTConversation *)conversation willDismissViewController:(UIViewController *)viewController
+{
+    NSLog(@"Dismiss smooch");
 }
 
 #pragma mark - Private Methods
