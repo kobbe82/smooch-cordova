@@ -25,10 +25,10 @@
     [sktSettingsObj setValuesForKeysWithDictionary:settings];
     [Smooch initWithSettings:sktSettingsObj completionHandler:^(NSError * _Nullable error, NSDictionary * _Nullable userInfo) {
         if(!error){
-            NSLog(@"Kobbe smooch init successfull");
+            SKTConversation *conversation = [Smooch conversation];
+            conversation.delegate = self;
             [self sendSuccess:command];
         } else {
-            NSLog(@"Kobbe smooch init error");
             [self sendFailure:command];
         }
     }];
@@ -62,6 +62,28 @@
     }];
 }
 
+- (void)conversation:(SKTConversation *)conversation unreadCountDidChange:(NSUInteger)unreadCount {
+    NSString *jsCommand = [NSString stringWithFormat:@"cordova.fireDocumentEvent('smoochconversation', 'unreadCountDidChange', '%lu');", unreadCount];
+    [self.commandDelegate evalJs:jsCommand scheduledOnRunLoop:NO];
+}
+
+- (void)conversation:(SKTConversation *)conversation didReceiveActivity:(nonnull SKTConversationActivity *)activity {
+   NSString *jsCommand = [NSString stringWithFormat:@"cordova.fireDocumentEvent('smoochconversation', 'didReceiveActivity', '%@');", activity.type];
+   [self.commandDelegate evalJs:jsCommand scheduledOnRunLoop:NO];
+}
+
+- (void)conversation:(SKTConversation *)conversation willShowViewController:(UIViewController *)viewController {
+   [self.commandDelegate evalJs:@"cordova.fireDocumentEvent('smoochconversation', 'willShowViewController');" scheduledOnRunLoop:NO];
+}
+
+- (void)conversation:(SKTConversation *)conversation didShowViewController:(UIViewController *)viewController {
+    [self.commandDelegate evalJs:@"cordova.fireDocumentEvent('smoochconversation', 'didShowViewController');" scheduledOnRunLoop:NO];
+}
+
+- (void)conversation:(SKTConversation *)conversation didDismissViewController:(nonnull UIViewController *)viewController {
+    [self.commandDelegate evalJs:@"cordova.fireDocumentEvent('smoochconversation', 'didDismissViewController');" scheduledOnRunLoop:NO];
+}
+
 #pragma mark - User
 
 - (void)setUser:(CDVInvokedUrlCommand *)command {
@@ -86,12 +108,6 @@
     [currentUser addProperties:properties];
 
     [self sendSuccess:command];
-}
-
-#kda - smooch events
--(void)conversation:(SKTConversation *)conversation willDismissViewController:(UIViewController *)viewController
-{
-    NSLog(@"Dismiss smooch");
 }
 
 #pragma mark - Private Methods

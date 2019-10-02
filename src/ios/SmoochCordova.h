@@ -7,12 +7,10 @@
 */
 
 #import <Cordova/CDV.h>
-
+#import <Smooch/Smooch.h>
 @protocol SKTConversationDelegate;
 
-@interface SmoochCordova : CDVPlugin
-
-@property(weak, nullable) id<SKTConversationDelegate> delegate;
+@interface SmoochCordova : CDVPlugin <SKTConversationDelegate>
 
 - (void)init:(CDVInvokedUrlCommand *)command;
 - (void)show:(CDVInvokedUrlCommand *)command;
