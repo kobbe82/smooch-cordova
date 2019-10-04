@@ -65,12 +65,14 @@
 }
 
 - (void)conversation:(SKTConversation *)conversation unreadCountDidChange:(NSUInteger)unreadCount {
-    NSString *jsCommand = [NSString stringWithFormat:@"cordova.fireDocumentEvent('smoochconversation', '{type: \'unreadCountDidChange\', details: {unreadCount: \'%lu\'}}');", unreadCount];
+    NSDictionary *data = @{@"unreadCount": @(unreadCount)};
+    NSString *jsCommand = [self generateEventCommand:@"unreadCountDidChange" withdata:data];
     [self.commandDelegate evalJs:jsCommand scheduledOnRunLoop:NO];
 }
 
 - (void)conversation:(SKTConversation *)conversation didReceiveActivity:(nonnull SKTConversationActivity *)activity {
-   NSString *jsCommand = [NSString stringWithFormat:@"cordova.fireDocumentEvent('smoochconversation', '{type: \'didReceiveActivity\', details: { type: \'%@\'}}');", activity.type];
+   NSDictionary *data = @{@"role": activity.role, @"type": activity.type, @"data": activity.data, @"appMarkerLastRead": activity.appMakerLastRead};
+   NSString *jsCommand = [self generateEventCommand:@"didReceiveActivity" withdata:data];
    [self.commandDelegate evalJs:jsCommand scheduledOnRunLoop:NO];
 }
 
